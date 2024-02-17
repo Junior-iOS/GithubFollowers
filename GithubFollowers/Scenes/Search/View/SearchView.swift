@@ -8,7 +8,6 @@
 import UIKit
 
 class SearchView: UIView {
-    
     let logoImageView = UIImageView()
     let usernameTextField = GFTextField()
     let actionButton = GFButton(backgroundColor: .systemGreen, title: "Get Followers")
