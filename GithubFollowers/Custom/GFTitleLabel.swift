@@ -26,6 +26,7 @@ class GFTitleLabel: UILabel {
     }
     
     private func configure() {
+        numberOfLines = 0
         textColor = .label
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.9

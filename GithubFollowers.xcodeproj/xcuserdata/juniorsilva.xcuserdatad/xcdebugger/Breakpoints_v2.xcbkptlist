@@ -3,4 +3,54 @@
    uuid = "99067B3B-FD10-4BFA-81AE-86239DF7CF64"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1522BC33-4177-41E2-ABE5-AB2BCF1E2035"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "GithubFollowers/Scenes/Followers/Followers/View/Cell/FollowerCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "configure(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1522BC33-4177-41E2-ABE5-AB2BCF1E2035 - ec8dc1b9871af182"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubFollowers.FollowerCell.configure(with: GithubFollowers.Follower) -&gt; ()"
+                  moduleName = "GithubFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juniorsilva/Projetos%20iOS/GithubFollowers/GithubFollowers/Scenes/Followers/Followers/View/Cell/FollowerCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "208">
+               </Location>
+               <Location
+                  uuid = "1522BC33-4177-41E2-ABE5-AB2BCF1E2035 - ec8dc1b9871af182"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "GithubFollowers.FollowerCell.configure(with: GithubFollowers.Follower) -&gt; ()"
+                  moduleName = "GithubFollowers"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/juniorsilva/Projetos%20iOS/GithubFollowers/GithubFollowers/Scenes/Followers/Followers/View/Cell/FollowerCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "40"
+                  endingLineNumber = "40"
+                  offsetFromSymbolStart = "55">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

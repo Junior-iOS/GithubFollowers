@@ -9,11 +9,23 @@ import UIKit
 
 class FollowersListViewController: UIViewController {
     
+    enum Section {
+        case main
+    }
+    
+    private let followersView = FollowersListView()
     private let viewModel: FollowersListViewModel
+    private var dataSource: UICollectionViewDiffableDataSource<Section, Follower>?
+    
+    override func loadView() {
+        super.loadView()
+        self.view = followersView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        configureDataSource()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,10 +48,27 @@ class FollowersListViewController: UIViewController {
         title = viewModel.userName
         viewModel.delegate = self
     }
+    
+    private func configureDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, Follower>(collectionView: followersView.collectionView, cellProvider: { collectionView, indexPath, follower -> UICollectionViewCell in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FollowerCell.identifier, for: indexPath) as? FollowerCell else { return UICollectionViewCell() }
+            cell.configure(with: follower)
+            return cell
+        })
+    }
 }
 
 extension FollowersListViewController: FollowersViewModelProtocol {
     func showAlert(for error: String) {
         presentAlert(title: "Ops!", message: error, buttonTitle: "Ok")
+    }
+    
+    func updateData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, Follower>()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(viewModel.followers)
+        DispatchQueue.main.async {
+            self.dataSource?.apply(snapshot, animatingDifferences: true)
+        }
     }
 }

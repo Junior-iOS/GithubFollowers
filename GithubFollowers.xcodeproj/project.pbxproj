@@ -267,8 +267,8 @@
 		14B8BBC72B7B06F00096D4A5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				14B8BBEB2B804AD00096D4A5 /* Cell */,
 				14B8BBA82B7975F00096D4A5 /* FollowersListView.swift */,
+				14B8BBEB2B804AD00096D4A5 /* Cell */,
 			);
 			path = View;
 			sourceTree = "<group>";

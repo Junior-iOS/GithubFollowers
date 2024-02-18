@@ -9,25 +9,28 @@ import Foundation
 
 protocol FollowersViewModelProtocol: AnyObject {
     func showAlert(for error: String)
+    func updateData()
 }
  
 final class FollowersListViewModel {
-    public var userName: String
     let service = NetworkManager.shared
-    
     weak var delegate: FollowersViewModelProtocol?
+    
+    public var userName: String
+    var followers: [Follower] = []
     
     init(userName: String) {
         self.userName = userName
     }
     
     func loadFollowers(for username: String, page: Int) {
-        service.getFollowers(by: username, page: 1) { result in
+        service.getFollowers(by: username, page: 1) { [weak self] result in
             switch result {
             case .success(let followers):
-                print(followers)
+                self?.followers = followers
+                self?.delegate?.updateData()
             case .failure(let errorMessage):
-                self.delegate?.showAlert(for: errorMessage.rawValue)
+                self?.delegate?.showAlert(for: errorMessage.rawValue)
             }
         }
     }
