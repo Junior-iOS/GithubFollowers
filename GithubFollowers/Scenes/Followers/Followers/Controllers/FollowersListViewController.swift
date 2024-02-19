@@ -26,6 +26,7 @@ class FollowersListViewController: UIViewController {
         super.viewDidLoad()
         setup()
         configureDataSource()
+        configureDelegate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -56,6 +57,10 @@ class FollowersListViewController: UIViewController {
             return cell
         })
     }
+    
+    private func configureDelegate() {
+        followersView.collectionView.delegate = self
+    }
 }
 
 extension FollowersListViewController: FollowersViewModelProtocol {
@@ -69,6 +74,20 @@ extension FollowersListViewController: FollowersViewModelProtocol {
         snapshot.appendItems(viewModel.followers)
         DispatchQueue.main.async {
             self.dataSource?.apply(snapshot, animatingDifferences: true)
+        }
+    }
+}
+
+extension FollowersListViewController: UICollectionViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        let height = scrollView.frame.size.height
+        
+        if offsetY > contentHeight - height {
+            guard viewModel.hasMoreFollowers else { return }
+            viewModel.page += 1
+            viewModel.loadFollowers(for: viewModel.userName, page: viewModel.page)
         }
     }
 }

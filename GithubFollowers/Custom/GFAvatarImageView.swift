@@ -8,7 +8,6 @@
 import UIKit
 
 class GFAvatarImageView: UIImageView {
-    
     private let cache = NetworkManager.shared.cache
 
     override init(frame: CGRect) {

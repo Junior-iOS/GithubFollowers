@@ -8,8 +8,8 @@
 import Foundation
 
 class Bindable<T> {
-    fileprivate var observers: [((T) -> ())] = []
-    
+    fileprivate var observers: [((T) -> Void)] = []
+
     var value: T {
         didSet {
             observers.forEach { observe in
@@ -17,12 +17,12 @@ class Bindable<T> {
             }
         }
     }
-    
+
     init(value: T) {
         self.value = value
     }
-    
-    func bind(observer: @escaping (T) ->()) {
+
+    func bind(observer: @escaping (T) -> Void) {
         self.observers.append(observer)
     }
 }
