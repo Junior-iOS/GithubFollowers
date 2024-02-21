@@ -9,7 +9,8 @@ import Foundation
 
 protocol FollowersViewModelProtocol: AnyObject {
     func showAlert(for error: String)
-    func updateData()
+    func showEmptyState(message: String)
+    func updateData(on followers: [Follower])
 }
  
 final class FollowersListViewModel {
@@ -18,6 +19,7 @@ final class FollowersListViewModel {
     
     public var userName: String
     var followers: [Follower] = []
+    var filteredFollowers: [Follower] = []
     var hasMoreFollowers = true
     var page = 1
     
@@ -31,7 +33,16 @@ final class FollowersListViewModel {
             case .success(let followers):
                 if followers.count < 50 { self?.hasMoreFollowers = false }
                 self?.followers.append(contentsOf: followers)
-                self?.delegate?.updateData()
+                
+                if followers.isEmpty {
+                    let message = "This user doesn't have any followers. Go follow them! 😎"
+                    DispatchQueue.main.async {
+                        self?.delegate?.showEmptyState(message: message)
+                        return
+                    }
+                }
+                
+                self?.delegate?.updateData(on: followers)
             case .failure(let errorMessage):
                 self?.delegate?.showAlert(for: errorMessage.rawValue)
             }

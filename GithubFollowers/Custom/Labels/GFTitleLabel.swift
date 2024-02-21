@@ -18,15 +18,15 @@ class GFTitleLabel: UILabel {
     @available(*, unavailable)
     required init?(coder: NSCoder) { nil }
     
-    init(textAlignment: NSTextAlignment, fontSize: CGFloat) {
+    init(textAlignment: NSTextAlignment, fontSize: CGFloat, numberOfLines: Int = 0) {
         super.init(frame: .zero)
         self.textAlignment = textAlignment
         self.font = UIFont.systemFont(ofSize: fontSize, weight: .bold)
+        self.numberOfLines = numberOfLines
         configure()
     }
     
     private func configure() {
-        numberOfLines = 0
         textColor = .label
         adjustsFontSizeToFitWidth = true
         minimumScaleFactor = 0.9
