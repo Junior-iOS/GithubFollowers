@@ -27,8 +27,8 @@ final class FollowersListViewModel {
         self.userName = userName
     }
     
-    func loadFollowers(for username: String, page: Int) {
-        service.getFollowers(by: username, page: page) { [weak self] result in
+    func loadFollowers(by username: String, page: Int) {
+        service.fetchData(for: [Follower].self, by: username, with: .followers, per: page) { [weak self] result in
             switch result {
             case .success(let followers):
                 if followers.count < 50 { self?.hasMoreFollowers = false }

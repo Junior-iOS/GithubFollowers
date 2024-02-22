@@ -13,32 +13,52 @@ final class NetworkManager {
     private let baseURL = "https://api.github.com/users/"
     let cache = NSCache<NSString, UIImage>()
     
+    enum Endpoint {
+        case followers
+        case user
+    }
+    
     private init() {}
     
-    func getFollowers(by username: String, page: Int, completion: @escaping (Result<[Follower], ErrorMessage>) -> Void) {
-        let endpoint = "\(baseURL)\(username)/followers?per_page=50&page=\(page)"
+    func fetchData<T: Decodable>(for type: T.Type,
+                                 by username: String,
+                                 with endpoint: Endpoint,
+                                 per page: Int = 0,
+                                 completion: @escaping (Result<T, ErrorMessage>) -> Void) {
         
-        guard let url = URL(string: endpoint) else {
-            completion(.failure(.invalidData))
+        var endpointString = "\(baseURL)\(username)"
+        
+        if endpoint == .followers {
+            endpointString += "/followers?per_page=50&page=\(page)"
+        }
+        
+        guard let url = URL(string: endpointString) else {
+            completion(.failure(.invalidRequest))
             return
         }
         
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
+            let result: Result<T, ErrorMessage>
+            
+            defer {
+                completion(result)
+            }
+            
             guard error == nil, let data else {
-                completion(.failure(.unableToComplete))
+                result = .failure(.unableToComplete)
                 return
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(.failure(.invalidResponse))
+                result = .failure(.invalidResponse)
                 return
             }
             
             do {
-                let followers = try JSONDecoder().decode([Follower].self, from: data)
-                completion(.success(followers))
+                let response = try JSONDecoder().decode(T.self, from: data)
+                result = .success(response)
             } catch {
-                completion(.failure(.invalidData))
+                result = .failure(.invalidData)
             }
         }
         
