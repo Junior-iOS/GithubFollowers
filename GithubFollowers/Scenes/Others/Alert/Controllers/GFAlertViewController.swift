@@ -7,7 +7,7 @@
 
 import UIKit
 
-class GFAlertViewController: UIViewController {
+final class GFAlertViewController: UIViewController {
     
     private let alertView = GFAlertView()
     private let viewModel: GFAlertViewModel

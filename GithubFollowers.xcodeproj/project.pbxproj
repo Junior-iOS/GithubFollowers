@@ -38,6 +38,9 @@
 		14B8BBFA2B86811C0096D4A5 /* UserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8BBF92B86811C0096D4A5 /* UserInfoViewController.swift */; };
 		14B8BBFE2B86855D0096D4A5 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8BBFD2B86855D0096D4A5 /* UserInfoView.swift */; };
 		14B8BC012B8687020096D4A5 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14B8BC002B8687020096D4A5 /* UserInfoViewModel.swift */; };
+		14C835F62B9549A20020D6AB /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C835F52B9549A20020D6AB /* Constants.swift */; };
+		14D2C8D32B88565A00D2BDBD /* GFSecondaryTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2C8D22B88565A00D2BDBD /* GFSecondaryTitleLabel.swift */; };
+		14D2C8D62B8857A700D2BDBD /* GFUserInfoHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2C8D52B8857A700D2BDBD /* GFUserInfoHeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +77,9 @@
 		14B8BBF92B86811C0096D4A5 /* UserInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewController.swift; sourceTree = "<group>"; };
 		14B8BBFD2B86855D0096D4A5 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		14B8BC002B8687020096D4A5 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		14C835F52B9549A20020D6AB /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		14D2C8D22B88565A00D2BDBD /* GFSecondaryTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFSecondaryTitleLabel.swift; sourceTree = "<group>"; };
+		14D2C8D52B8857A700D2BDBD /* GFUserInfoHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFUserInfoHeaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +149,7 @@
 				14B8BBA42B796E990096D4A5 /* UIView+Extensions.swift */,
 				14B8BBCE2B7B0EEC0096D4A5 /* UIViewController+Extensions.swift */,
 				14B8BBE92B8043DD0096D4A5 /* ErrorMessage.swift */,
+				14C835F52B9549A20020D6AB /* Constants.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -159,6 +166,7 @@
 		14B8BBAE2B7A6A5A0096D4A5 /* Custom */ = {
 			isa = PBXGroup;
 			children = (
+				14D2C8D42B88578E00D2BDBD /* ViewControllers */,
 				14B8BBF52B85095B0096D4A5 /* Views */,
 				14B8BBF12B8509290096D4A5 /* Buttons */,
 				14B8BBF22B85093B0096D4A5 /* TextFields */,
@@ -360,6 +368,7 @@
 			isa = PBXGroup;
 			children = (
 				14B8BBAC2B7A6A500096D4A5 /* GFTitleLabel.swift */,
+				14D2C8D22B88565A00D2BDBD /* GFSecondaryTitleLabel.swift */,
 				14B8BBB02B7A6C140096D4A5 /* GFBodyLabel.swift */,
 			);
 			path = Labels;
@@ -413,6 +422,14 @@
 				14B8BC002B8687020096D4A5 /* UserInfoViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		14D2C8D42B88578E00D2BDBD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				14D2C8D52B8857A700D2BDBD /* GFUserInfoHeaderViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -492,6 +509,7 @@
 				14B8BBE62B7F1D2E0096D4A5 /* NetworkManager.swift in Sources */,
 				14B8BBF72B8509770096D4A5 /* GFEmptyStateView.swift in Sources */,
 				14B8BBAD2B7A6A500096D4A5 /* GFTitleLabel.swift in Sources */,
+				14C835F62B9549A20020D6AB /* Constants.swift in Sources */,
 				14B8BBAB2B7977410096D4A5 /* FollowersListViewModel.swift in Sources */,
 				149EDF632B72005000E1C300 /* GFTextField.swift in Sources */,
 				14B8BBA72B7975C90096D4A5 /* FollowersListViewController.swift in Sources */,
@@ -504,7 +522,9 @@
 				14B8BC012B8687020096D4A5 /* UserInfoViewModel.swift in Sources */,
 				149EDF612B71FDE800E1C300 /* GFButton.swift in Sources */,
 				14B8BBA32B796C950096D4A5 /* SearchView.swift in Sources */,
+				14D2C8D32B88565A00D2BDBD /* GFSecondaryTitleLabel.swift in Sources */,
 				14B8BBEF2B804B830096D4A5 /* GFAvatarImageView.swift in Sources */,
+				14D2C8D62B8857A700D2BDBD /* GFUserInfoHeaderViewController.swift in Sources */,
 				149EDF4B2B6D50F800E1C300 /* AppDelegate.swift in Sources */,
 				14B8BBA92B7975F00096D4A5 /* FollowersListView.swift in Sources */,
 				149EDF5F2B6DFF3500E1C300 /* FavoritesListViewController.swift in Sources */,

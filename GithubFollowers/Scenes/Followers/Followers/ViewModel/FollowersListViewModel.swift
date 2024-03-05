@@ -42,7 +42,7 @@ final class FollowersListViewModel {
                     }
                 }
                 
-                self?.delegate?.updateData(on: followers)
+                self?.delegate?.updateData(on: self?.followers ?? [])
             case .failure(let errorMessage):
                 self?.delegate?.showAlert(for: errorMessage.rawValue)
             }
